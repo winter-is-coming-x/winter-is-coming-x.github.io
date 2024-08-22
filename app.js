@@ -73,11 +73,14 @@ function getNews(newsCategoryName) {
       }
 
       xhr.onprogress = showSpinner;
+      let randomContent = Math.random();
+      let readMore = randomContent < 0.99 ? "Read more.." : "Read more"
 
       for (key in data) {
         let news = `<div class="newsCard">
         <div class="imageWrapper">
         <img src="${data[key].imageUrl}"
+        
         class="thumnail" alt="Image">
             </div>
             <div class="card-body">
@@ -85,7 +88,7 @@ function getNews(newsCategoryName) {
                       <h5 class="card-title">${data[key].title}</h5>
                                 <h5 class="card-author">Author: ${data[key].author}</h5>
                                 <p class="card-text">${data[key].content}</p>
-                                <a target="_blank" href="${data[key].readMoreUrl}" class="btn btn-primary">Read more..</a>
+                                <a target="_blank" href="${data[key].readMoreUrl}" class="btn btn-primary">${readMore}</a>
                             </div>
                            
                         </div>`;
